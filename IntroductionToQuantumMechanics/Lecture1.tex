@@ -1,0 +1,138 @@
+\section{Wavefunctions}
+
+By adding waves with lots of different momenta prevents us from knowing the
+position and momentum at the same time. By decreasing the uncertainty in
+position we increase it in momentum.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{WaveFunctionSuperpositionLecture1.pdf}
+	\caption{Adding waves together ``localises" them more in space.}
+\end{figure}
+This gives us a weak idea of Heisenberg Uncertainty!
+$$
+	\Delta x \Delta p \geq \frac{\hbar}{2}
+$$
+
+\subsection{Classical Waves}
+
+We expect classical waves to move in a certain way, in accordance with the wave
+equation:
+$$
+	\frac{\partial^2y}{\partial x^2} =
+	\frac{1}{v^2}\frac{\partial^2y}{\partial t^2}
+$$
+and have the following properties:
+\begin{itemize}
+	\item $v = \omega/k$
+	\item $\omega = 2\pi f$
+	\item $f = 2\pi/\lambda$
+\end{itemize}
+For example:
+$$
+	y(x,t) = A\cos(kx - \omega t) + B\sin(kx - \omega t)
+$$
+Which satisfies the above wave equation.
+
+However, here, momentum ($mv$) is not dependent on wavelength. This must be
+different in the quantum world, because of De Broglie's relation:
+$$
+	\lambda = \frac{h}{p}
+$$
+
+\subsection{Quantum Waves}
+
+Let's just begin by studying a random wave:
+$$
+	\Psi(x,t) = A\cos(kx - \omega t) + B\sin(kx - \omega t)
+$$
+From the quantum world, we can use that:
+\begin{itemize}
+	\item $p = h/\lambda = \hbar k$
+	\item $E = hf = \hbar\omega$
+\end{itemize}
+And from the classical world:
+\begin{itemize}
+	\item $E = p^2/2m = \hbar^2k^2/2m$
+\end{itemize}
+Let's begin by getting a $k^2$ out by differentiating the wavefunction with
+respect to $x$ twice:
+$$
+	\frac{\partial^2 \Psi}{\partial x^2} = -k^2\Psi
+$$
+Plugging into the above formulae:
+$$
+	\Psi E = \Psi \hbar^2 k^2 =
+	-\frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2}
+$$
+Now we need to get $\omega$. Let's try differentiating with respect to time.
+$$
+	\frac{\partial \Psi}{\partial t} =
+	\omega \left[A\sin(kx - \omega t) - B\cos(kx - \omega t)\right]
+$$
+However, this isn't really that useful. We want it to equal a multiple of our
+original wavefunction, or the maths is really hard to do.
+$$
+	\omega \left[A\sin(kx - \omega t) - B\cos(kx - \omega t)\right] = 
+	C\Psi = C\left[A\cos(kx - \omega t) + B\sin(kx - \omega t)\right]
+$$
+We can now equate coefficients and find that (sub $\sin(kx-\omega t) = s$):
+$$
+	\omega[As - Bc] = C[Ac + Bs]
+	\; \rightarrow \;
+	C = \frac{\omega A}{B}
+$$
+And as such
+$$
+	B^2 = -A^2 \; \; \rightarrow \; \; B = \pm iA
+$$
+From this we find that:
+$$
+	\Psi(x,t) = A\left[\cos(kx-\omega t) + i\sin(kx - \omega t)\right] =
+	Ae^{i(kx-\omega t)}
+$$
+And now we can put it all together to find the \emph{Schroedinger Equation for a
+free particle}:
+$$
+	i\hbar = \frac{\partial \Psi}{\partial t} =
+	-\frac{\hbar^2}{2m}\frac{\partial^2\Psi}{\partial x^2}
+$$
+This can be easily generalised to find \emph{The Schroedinger Equation!}:
+$$
+	i\hbar = \frac{\partial \Psi}{\partial t} =
+	-\frac{\hbar^2}{2m}\frac{\partial^2\Psi}{\partial x^2} +
+	V(x,t)\Psi
+$$
+We can notice that the Schroedinger Equation is \emph{linear} and
+\emph{homogeneous}! This means that the linear sum of any two solutions is also
+a solution.
+
+For the classical wave equation we needed two boundary conditions to solve,
+however here we only need one.
+
+\section{Interpretation of $\Psi$}
+
+This equation leads us to believe that there is an underlying statistical
+nature to The Universe.
+
+Classically, we know that $I \propto A^2$. Quantum mechanically we think of this
+square of the wavefunction as the probability of finding the particle at that
+point.
+$$
+	P(particle) = |\Psi(x,t)|^2 = \Psi^*\Psi
+$$
+We choose this because it will \emph{always} be real - like probabilities must
+be.
+
+\section{Normalisation}
+
+Suppose we want to normalise some function $f(x,t)$. We need to find the total
+area under the function and then divide through by a constant to make sure this
+is unity:
+$$
+	|N|^2\int^\infty_{-\infty}f^*(x,t)f(x,t)\cdot\mathrm{d}x = 1
+$$
+And so we can find the normalisation constant, $N$:
+$$
+	N = \frac{1}{\sqrt{\int^\infty_{-\infty}f^*(x,t)f(x,t)\cdot\mathrm{d}x}}
+$$
+We simply need to do this for the wavefunction to normalise it.
