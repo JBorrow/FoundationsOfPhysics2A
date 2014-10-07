@@ -1,0 +1,157 @@
+\subsection{Normalizatiof condition}
+
+For the unboud particle, it is trivial to work out the normalization condition.
+$$	
+	\int^\infty_{-\infty} \Psi^* \Psi \cdot \mathrm{d}x = 1
+$$
+$$
+	A^2\int^\infty_{-\infty} \exp(-i[kx-\omega t])\exp(i[kx-\omega t]) 
+	\cdot \mathrm{d}x = 1
+$$
+$$
+	A^2 \cdot \infty = 1
+$$
+Oh dear! This is when we assume that the particle is not confined at all, when
+it is really confined to the length of our lab, $L$, giving:
+$$
+	A = \frac{1}{\sqrt{L}}
+$$
+
+\subsection{Gaussian wavefunction}
+
+What happens when we try to find the normalisation condition for a gaussian?
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\textwidth]{GaussianForLecture2.pdf}
+	\caption{A Gaussian function}
+\end{figure}
+The equation for a gaussian:
+$$
+	\Psi = N\exp\left(-\frac{ax^2}{2}\right)
+$$
+To find the normalisation:
+$$
+	\int\Psi^* \Psi \cdot \mathrm{d}x = 1 = 
+	\int^\infty_{-\infty}N^2 \exp\left(-{ax^2}\right)\cdot \mathrm{d}x
+$$
+Using WolframAlpha:
+$$
+	N^2\frac{\sqrt{\pi}}{\sqrt{a}} = 1 \; \rightarrow \;
+	N = {\left(\frac{a}{\pi}\right)}^{\frac{1}{4}}
+$$
+Now, let's work out what the probability of finding the particle in the range of
+$0 \rightarrow a$!
+$$
+	\int_0^a P(x)\cdot \mathrm{d}x = 
+	{\left(\frac{a}{\pi}\right)}^{\frac{1}{2}}
+	\int^a_0 \exp(-ax^2)\cdot\mathrm{d}x =
+	\frac{\mathrm{Erf}\left(a^\frac{3}{2}\right)}{2}
+$$
+
+\subsection{Normalization is time-independent}
+It is possible to show that:
+$$
+	\frac{\partial}{\partial t} \int^\infty_{-\infty}\Psi^* \Psi\cdot\mathrm{d}x
+	= 0
+$$
+This means you only need to normalize once!
+
+\section{Position}
+What's the average position of the particle with our Gaussian wavefunction?
+Let's denote it $<x>$:
+$$
+	<x> = \int P(x) x \cdot \mathrm{d}x = \int\Psi^* x \Psi \cdot \mathrm{d}x
+$$
+Substituting in the Gaussian:
+$$
+	<x> = {\left(\frac{a}{\pi}\right)}^{\frac{1}{2}}
+	\int^\infty_{-\infty} x \exp(-ax^2) \cdot \mathrm{d}x
+$$
+Which we can solve to find:
+$$
+	<x> = 0!
+$$
+Which is exactly what you would expect, as the Gaussian is symmetric about 0.
+
+\subsection{Momentum}
+Similarly to how we worked out the average position, we must be able to work out
+the average momentum. Let's start with:
+$$
+	E\Psi = - \frac{\hbar^2}{2m}\frac{\partial^2 \Psi}{\partial x^2}
+$$
+From the definition of kinetic energy:
+$$
+	E= \frac{p^2}{2m}
+$$
+We can put these together to show:
+$$
+	\Psi p^2 = \Psi p \cdot p = -\hbar^2 \frac{\partial^2 \Psi}{\partial x^2}
+$$
+And extract:
+$$
+	p\Psi = -i\hbar\frac{\partial\Psi}{\partial x}
+$$
+From this, we can try to find what the average momentum in the Gaussian is!
+$$
+	<p> = \int p(x) P(x) \cdot \mathrm{d} x
+$$
+Now we substitute in for $p\Psi$:
+$$
+	-i\hbar \int^\infty_{-\infty} \Psi^* \frac{\partial \Psi}{\partial x}
+	\cdot \mathrm{d} x
+$$
+We already have the wavefunction, meaning we can substiute in to give:
+$$
+	<p> = {\left(\frac{a}{\pi}\right)}^2 (-i\hbar)
+	\int^\infty_{-\infty} -ax\exp(-ax^2) \cdot \mathrm{d} x = 0
+$$
+We can see that this is going to be 0 because of the fact that it is an odd
+function multiplied by an even function.
+
+The reason that we would expect this result is because this is clearly a bound
+wavefunction. This means that there will be standing waves set up inside the
+two potential barriers leading to standing waves which, clearly, aren't going
+anywhere and as such have a mean momentum of zero.
+
+\subsection{Ehrenfrest's Theorem}
+
+This theorem describes that these small quantum effects must add up to create
+the same overall behaviour as classical mechanics for a large system.
+
+We can show that:
+$$
+	<p> = m \frac{\mathrm{d}<x>}{\mathrm{d}t}
+$$
+and that:
+$$
+	\frac{\mathrm{d}<p>}{\mathrm{d}t} = <F> =
+	-\left<\frac{\partial V}{\partial x}\right>
+$$
+
+\subsection{General operators}
+This subsection deals with us generalising the discussion on momentum above. If
+we have a dynamical variable $A(x,p,t,\hdots)$ we can calculate an expectation
+of that quantity just by generalising to:
+$$
+	<A(x,p,t,\hdots) = \int^\infty_{-\infty} \Psi^* A(x,p,t,\hdots)\Psi
+	\cdot \mathrm{d}x
+$$
+This is best demonstrated with an example:
+
+\paragraph{Example: Kinetic Energy}
+$$
+	E\Psi = \frac{p\cdot p}{2m}\Psi = -\frac{-\hbar^2}{2m}
+	\frac{\partial^2 \Psi}{\partial x^2}
+$$
+Now we will start from the original expression:
+$$
+	<E> = \int E(x)P(x) \mathrm{d}x = 
+	\int^\infty_{-\infty} \Psi^* E \Psi \cdot \mathrm{d}x
+$$
+Substituting in:
+$$
+	<E> = -\frac{\hbar^2}{2m}\int^\infty_{-\infty} \Psi^*
+	\frac{\partial^2 \Psi}{\partial x^2} \cdot \mathrm{d}x
+$$
+From here we can substitute any wavefunction in, for example with the Gaussian
+above we get an answer of %NEXT TIME
