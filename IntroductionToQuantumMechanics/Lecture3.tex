@@ -1,0 +1,152 @@
+$$
+	<E> = <T> = \frac{\hbar^2 a}{2m}
+$$
+We use $T$ as the operator for kinetic energy in general.
+
+\section{The Hamiltonian}
+If we take the bound particle:
+$$
+	E\Psi = T\Psi V\Psi
+$$
+And substitute in the operators:
+$$
+	i\hbar \frac{\partial}{\partial t} =
+	-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} + V = H
+$$
+We call this function the Hamiltonian!
+
+\section{Relativistic systems}
+If we take the relativistic energy equation:
+$$
+	E^2 = p^2 c^2 + m^2 c^4
+$$
+and plug in the operators:
+$$
+	- \hbar^2 \frac{\partial^2 \Psi}{\partial t^2} = 
+	- \hbar^2 c^2 \frac{\partial^2 \Psi}{\partial x^2} +
+	m^2 c^4 \Psi
+$$
+For a free particle. Now, what happens when the particle is massless..?
+$$
+	\frac{\partial^2 \Psi}{\partial t^2} =
+	c^2 \frac{\partial^2 \Psi}{\partial x^2}
+$$
+And the wave equation pops out! This is really exciting - it shows that we 
+with our rather crappy `derivation' of the Schroedinger Equation have satisfied
+the laws of physics!
+
+\section{Reality check}
+We have a lot of $i$s floating about, so we need to check that our equations
+return real answers for things like kinetic energy. Let's start with the
+normalisation condition:
+$$
+	\intfinity \Psi^* \Psi \cdot \mathrm{d} x = 1
+$$
+What happens when we take the time derivative of this?
+$$
+	\frac{\mathrm{d}}{\mathrm{d}t} \intfinity \Psi^* \Psi \mathrm{d}x = 0
+$$
+We can put our time differential inside the integral:
+$$
+	\intfinity \frac{\partial}{\partial t} \left(\Psi^* \Psi\right) \cdot
+	\mathrm{d}x = 
+	\intfinity \frac{\partial \Psi^*}{\partial t} \Psi \cdot \mathrm{d}x
+	+ \intfinity \Psi^* \frac{\partial \Psi}{\partial t} \cdot \mathrm{d}x
+	= 0
+$$
+Using Hamiltonian notation to simplify:
+$$
+	i\hbar \frac{\partial \Psi}{\partial t} = H\Psi
+$$
+Which gives:
+$$
+	\frac{\partial \Psi}{\partial t} = -\frac{i}{\hbar} H \Psi
+$$
+$$
+	\frac{\partial \Psi}{\partial t} = \frac{i}{\hbar} H \Psi^*
+$$
+Put this into the original equation to get:
+$$
+	\intfinity (H\Psi)^* \Psi \cdot \mathrm{d}x = 
+	\intfinity \Psi^* (H\Psi)\cdot \mathrm{d}x
+$$
+Which proves that:
+$$
+	<H> = {<H>}^* \; \rightarrow \; <H> \in \mathbb{R}
+$$
+This means that energy is always real! We can do a similar proof that shows that
+$<p> \in \mathbb{R}$. These are both Hermitian operators and as such expected
+values are always real.
+
+\section{Non-Hermitian operators}
+What if we try an operator like $<xp>$? We shouldn't be able to measure these
+two together to an arbritary precision!
+$$
+	<xp> = \intfinity \Psi x (-i \hbar) \frac{\partial \Psi}{\partial x}
+	\mathrm{d}x
+$$
+After a bit of trivial mathematics:
+$$
+	<xp> = i\hbar \intfinity \Psi \frac{\partial}{\partial x} (x \Psi^*) 
+	\cdot \mathrm{d}x = <px>^*
+$$
+Huh? What's going on? Surely this is all fine, because algebra is commutitive?
+No chance. This is quantum mechanics. You don't get away with that sort of stuff
+here. In fact, we have that:
+$$
+	px\Psi = xp\Psi - i\hbar \Psi
+$$
+Meaning that:
+$$
+	(px - xp)\Psi = -i\hbar\Psi
+$$
+The order of operations matters. We define this as a commutator, with the
+notation:
+$$
+	[x,p] = xp-px = i\hbar
+$$
+and this one is called the fundamental commutator. We say that if:
+$$
+	[A,B] = AB - BA \neq 0
+$$
+the commutator is non-hermitian and as such not real.
+\paragraph{Example} with the Gaussian!
+We find that:
+$$
+	<xp> = \frac{1}{2}i\hbar, \; \; <px> = -\frac{1}{2}i\hbar
+$$
+which satisfies
+$$
+	[x,p] = xp-px = i\hbar
+$$
+Even though these are non-reals, we can take the mean to find some sort of a
+value (as we know $<x> = 0$, $<p> = 0$ and as such expect $<px> = 0$):
+$$
+	\frac{1}{2}(xp+px) = 0
+$$
+
+\section{Commutators}
+If you have a commuator $[A,B] \neq 0$, then we say that it \emph{doesn't
+commute}. In physical terms this means that you've hit the uncertainty principle
+and are trying to measure $p$ and $x$ simultaneously.
+
+\subsection{Commutators and the uncertainty principle}
+We can have a formal treatment of this, and it is reasonably short:
+$$
+	\sigma_A^2 \sigma_B^2 \geq (\frac{1}{2}<[A,B]>)^2
+$$
+Let's try with our $[x,p]$ commutator:
+$$
+	\sigma_x^2 \sigma_p^2 \geq \left(\frac{i\hbar}{2i}\right)^2 = 
+	\left(\frac{\hbar}{2}\right)^2
+$$
+Meaning:
+$$
+	\sigma_x \sigma_p \geq \frac{\hbar}{2}
+$$
+We chose the Gaussian function because it is the wavefunction that minimises
+the uncertainty, and for the Gaussian:
+$$
+	\sigma_x \sigma_p = \frac{\hbar}{2}
+$$
+
