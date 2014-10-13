@@ -1,0 +1,129 @@
+\section{Finding the time independent Schroedinger Equation}
+We have the original, time-dependent Schroedinger Equation:
+$$
+	-\frac{\hbar^2}{2m}\frac{\partial^2 \Psi(x,t)}{\partial x^2} +
+	V(x,t)\Psi(x,t) = i\hbar \frac{\partial \Psi(x,t)}{\partial t}
+$$
+Everything here is a function of space and time. What if $V$ is time
+independent?
+$$
+	V(x,t) = V(x)
+$$
+Then the wavefunction is seprable:
+$$
+	\Psi(x,t) = \psi(x)T(t)
+$$
+This gives us:
+$$
+	-\frac{\hbar^2}{2m} \frac{1}{\psi(x)}
+	\frac{\mathrm{d}^2\psi(x)}{\mathrm{d}x^2}
+	+ V(x) = i\hbar \frac{1}{T(t)} \frac{\mathrm{d} T(t)}{\mathrm{d}t}
+$$
+We know, because the left-hand side is a function of only $x$, and the right
+hand side is only a function of $t$, that this is equal to a constant. We'll
+call that constant energy, $E$.
+
+\subsection{RHS}
+$$
+	E = i \hbar \frac{1}{T(t)} \frac{\mathrm{d} T(t)}{\mathrm{d}t}
+$$
+Gives
+$$
+	T(t) = A\exp\left(-\frac{iEt}{\hbar}\right)
+$$
+\subsection{LHS}
+$$
+	E = -\frac{\hbar^2}{2m} \frac{1}{\psi(x)}
+	\frac{\mathrm{d}^2\psi(x)}{\mathrm{d}x^2}  + V(x)
+$$
+Gives:
+$$
+	{\hbar^2}{2m} \frac{1}{\psi(x)}
+    \frac{\mathrm{d}^2\psi(x)}{\mathrm{d}x^2} + V(x) \psi(x) = E\psi(x)
+$$
+This is the \emph{time independent schroedinger equation}. It also happens to be
+an eigenvalue equation:
+$$
+	A f(x) = a f(x)
+$$
+Where $A$ is an operator, and $a$ is the eigenvalue. This is because we have the
+Hermitian operator that operates on $\psi(x)$, giving a constant ($E$)
+which is multiplied to the eigenfunction ($\psi(x)$). So we have the time-
+independent schroedinger equation:
+$$
+	H\psi(x) = E\psi(x)
+$$
+Normally we get multiple energy eigenvalues, so what about general solutions? We
+have that:
+$$
+	\Psi_n(x,t) = \psi_n(x) e^{-\frac{iE_n t}{\hbar}}
+$$
+Leads to the general solution:
+$$
+	\Psi(x,t) = \sum_n c_n \psi_n(x) e^{-\frac{iE_n t}{\hbar}}
+$$
+Where each $c_n$ is chosen such that:
+$$
+	\int^L_0 \Psi^*(x,t) \Psi(x,t) \cdot \mathrm{d}x = 1
+$$
+
+\section{Bound particles}
+Let's put a particle wave in a potential. Let's have that:
+$$
+	\Psi(x,t) = Ae^{i(kx-\omega t)} - Ae^{-i(kx-\omega t)}
+$$
+Where the left-hand side is the wave travelling to the right, and the right-hand
+side is the reflected wave that comes back. This reduces to:
+$$
+	\Psi(x,t) = 2Ae^{i\omega t}\sin kx
+$$
+Let's take this at $t=0$. We have that $\sin(k0) = 0$ (no surprise) and that
+$\sin(kL) = 0$ because the particle is trapped in an infinite square well. This
+gives us our first condition:
+$$
+	k = \frac{n\pi}{L}
+$$
+Our potential has taken a travelling wave and turned it into a standing wave(s)!
+We can calculate the energy of each:
+$$
+	-\frac{\hbar^2}{2m} \frac{\mathrm{d}^2\psi}{\partial x^2} = E\psi
+$$
+Which gives us the result:
+$$
+	k^2 = \frac{2mE}{\hbar^2}
+$$
+And using the above condition:
+$$
+	E_n = \frac{n^2\pi^2\hbar^2}{2mL^2}
+$$
+We now need to normalise the wavefunction, getting:
+$$
+	A_n = \sqrt{\frac{2}{L}}
+$$
+And our energy eigenfunctions:
+$$
+	\psi_n(x) = \sqrt{\frac{2}{L}} \sin \frac{n\pi x}{L}
+$$
+Finally:
+$$
+	\Psi_n(x,t) = \sqrt{\frac{2}{L}} \sin \frac{n\pi x}{L}
+	e^{-\frac{iE_n t}{\hbar}}
+$$
+Where:
+$$
+	E_n = \frac{n^2\pi^2\hbar^2}{2mL^2}
+$$
+We will probably now want to know how the probability changes as a function of
+time. However, due to the $i$ in the time-dependent part - there is no time
+dependence! The complex conjugate cancels out the temporal section! We can now
+write down the full solution:
+$$
+	\Psi(x,t) = \sum_n
+	\sqrt{\frac{2}{L}} \sin \frac{n\pi x}{L}
+	    e^{-\frac{iE_n t}{\hbar}}
+$$
+Where:
+$$
+    E_n = \frac{n^2\pi^2\hbar^2}{2mL^2}
+$$
+	
